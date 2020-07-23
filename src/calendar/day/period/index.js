@@ -187,6 +187,14 @@ class Day extends Component {
         });
       }
 
+      if (flags.startingDay || flags.endingDay) {
+        containerStyle.push({
+          borderRadius: 100,
+          borderWidth: 1,
+          borderColor: "#00c1fe"
+        });
+      }
+      
       fillers = (
         <View style={[this.style.fillers, fillerStyle]}>
           <View style={[this.style.leftFiller, leftFillerStyle]}/>
@@ -209,7 +217,7 @@ class Day extends Component {
       >
         <View style={this.style.wrapper}>
           {fillers}
-          <View style={containerStyle}>
+         <View style={[containerStyle,{alignItems: 'center', justifyContent:'center'}]}>
             <Text allowFontScaling={false} style={textStyle}>{String(this.props.children)}</Text>
             <Dot
               theme={theme}
